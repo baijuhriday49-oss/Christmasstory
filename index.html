@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+/* GENERAL */
+body {
+  background: #0b1d2a;
+  color: #f2f2f2;
+  font-family: Georgia, serif;
+  margin: 0;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* IMAGE */
+img {
+  width: 80%;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+/* TEXT */
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+p {
+  max-width: 800px;
+  margin: 10px auto;
+  line-height: 1.6;
+}
+
+/* SNOW BACKGROUND */
+.snow {
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(white 2px, transparent 3px),
+    radial-gradient(white 1.5px, transparent 3px),
+    radial-gradient(white 1px, transparent 3px);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  animation: snow 10s linear infinite;
+}
+
+@keyframes snow {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 0 1000px, 0 800px, 0 600px; }
+}
+
+/* MUSIC */
+#musicBtn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+/* BUTTONS */
+.back, .next {
+  display: block;
+  text-align: center;
+  margin: 40px 0;
+  font-size: 22px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.next {
+  font-size: 42px;
+  opacity: 0.8;
+}
+
+.next:hover, .back:hover {
+  color: white;
+}
+
+/* SNOWFLAKES */
+.snowflake {
+  position: fixed;
+  top: -40px;
+  pointer-events: none;
+  animation: fall linear;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+/* END SCREEN */
+#endScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  color: white;
+  letter-spacing: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease;
+  z-index: 99999;
+}
+</style>
+    <style>
+      .story {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 40px auto;
+  padding: 14px 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.story:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
+    </style>
+   <style>
+  body {
+    background: #0b1d2a;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image:
+      radial-gradient(white 2px, transparent 3px),
+      radial-gradient(white 1.5px, transparent 3px),
+      radial-gradient(white 1px, transparent 3px);
+    background-size: 100px 100px, 150px 150px, 200px 200px;
+    animation: snow 10s linear infinite;
+  }
+
+  @keyframes snow {
+    from {
+      background-position: 0 0, 0 0, 0 0;
+    }
+    to {
+      background-position: 0 1000px, 0 800px, 0 600px;
+    }
+  }</style>
+  <meta charset="UTF-8">
+  <title>TV</title>
+  <meta name="color-scheme" content="light dark">
+  <style>
+.next {
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  margin: 40px 0;
+  color: white;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.next:hover {
+  opacity: 1;
+}
+</style>
+  <style>
+    body {
+      background: #0b1d2a;
+      color: #f2f2f2;
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    img {
+      width: 80%;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    p {
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 10px auto;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin: 50px 0;
+      font-size: 20px;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: white;
+    }</style>
+  </head>
+  <body>
+    <audio id="bgm" src="Christmas_song.mp3"></audio>
+    <button id="musicBtn">🔇</button>
+
+<audio id="bgMusic" loop>
+  <source src="audios/Christmas_song.mp3" type="audio/mpeg">
+</audio>
+    
+    
+    <img src="images2/img_SC.jpg" style="width: 100%;"/>
+    
+    <div class="snow"></div>
+    <!-- rest of your story -->
+  
+    <h1><b>The Night Santa Laughed</b></h1>
+    <p>Snow fell softly outside the small house, covering the world in white silence.</p> <p>Inside, the living room glowed warmly with golden lights, and a tall Christmas tree stood proudly in the corner, decorated with shining ornaments and handmade stars</p> <p>. The fireplace crackled gently, filling the room with comfort and hope.</p>
+<p>Little Timi sat on the rug, his legs crossed, staring at the presents beneath the tree.</p> <p> His heart was beating fast.</p> <p>All year, he had waited for this night.</p> <p>He imagined shiny toys, colorful books, and maybe even the red bicycle he had wished for in his prayers.</p>
+<p>“Santa will come,” Timi whispered to himself.</p> <p>“I tried my best this year… mostly.”</p>
+<p>The clock ticked closer to midnight.</p>
+<p>Suddenly—</p>
+<p>CRASH!</p>
+<p>The window flew open, cold air rushed in, and snow scattered across the floor.</p> <p> Before Timi could scream, a loud laugh filled the room.</p>
+<p>“Ho ho ho ho!”</p>
+<p>Santa Claus stood there, tall and red-coated, his white beard bouncing as he laughed.</p> <p>His boots thumped against the floor as he stepped inside.</p> <p>But something felt… wrong.</p> <p>His laugh was too loud. Too long.</p>
+<p>Timi froze.</p>
+<p>Santa looked down at him, eyes twinkling—not with kindness, but with mischief.</p>
+<p>“Little Timi,” Santa said, wiping a tear of laughter from his eye.</p>
+<p>“Do you know why I’m here?”
+Timi swallowed.</p> <p>“F-for presents?”</p>
+<p>Santa laughed again, louder than before.</p>
+<p>“Oh no, no, no,” Santa said. “This year… you’re on the naughty list.”</p>
+<p>Timi’s heart dropped.</p>
+<p>“But I— I tried!” Timi cried. “I shared my toys! I helped my mom! I only broke the vase once!”</p>
+<p>Santa shook his head dramatically. “Rules are rules.”</p>
+<p>From behind his back, Santa pulled out a dusty, old box. He placed it into Timi’s shaking hands.</p>
+<p>“This,” Santa said, grinning, “is your special gift.”</p>
+<p>Slowly, carefully, Timi opened the box.</p>
+<p>Inside was a torn shoe, worn and broken, and a snapped pencil, dull and useless.</p> <p>Dust rose into the air as the box opened.</p>
+<p>For a moment, the room was silent.</p>
+Then Timi’s face crumpled.
+<p>Tears streamed down his cheeks as he cried louder than the winter wind outside.</p> <p>His small hands trembled as he held the box, staring at the broken things that were supposed to be his Christmas miracle.</p>
+<p>“Why?” Timi sobbed. “Why would you give me this?”</p>
+<p>Behind him, Santa laughed again—deep, echoing laughter that filled the room.</p>
+<p>But as Timi cried, something strange happened.</p>
+<p>The Christmas lights flickered.</p>
+<p>The fire crackled louder.</p>
+<p>And outside, the snow began to fall faster.</p>
+<p>Because this was not the end of Timi’s story.</p>
+<p>It was only the beginning.</p>
+<a class="story" href="SCpart2.html">▶ THE STORY CONTINUING...</a>
+ </body> 
+ <script>
+  const snowflakes = ["❄️", "❅", "❆"];
+
+  function createSnow() {
+    const snow = document.createElement("div");
+    snow.className = "snowflake";
+    snow.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+
+    snow.style.left = Math.random() * window.innerWidth + "px";
+    snow.style.fontSize = 16 + Math.random() * 24 + "px";
+    snow.style.animationDuration = 6 + Math.random() * 6 + "s";
+    snow.style.opacity = Math.random();
+
+    document.body.appendChild(snow);
+
+    setTimeout(() => {
+      snow.remove();
+    }, 12000);
+  }
+
+  setInterval(createSnow, 400);
+</script>
+<script>
+let snowInterval;
+
+function startSnow() {
+  snowInterval = setInterval(createSnow, 400);
+}
+
+function stopSnow() {
+  clearInterval(snowInterval);
+}
+
+function createSnow() {
+  const flakes = ["❄️","❅","❆"];
+  const snow = document.createElement("div");
+  snow.className = "snowflake";
+  snow.textContent = flakes[Math.floor(Math.random() * flakes.length)];
+
+  snow.style.left = Math.random() * window.innerWidth + "px";
+  snow.style.fontSize = 16 + Math.random() * 24 + "px";
+  snow.style.animationDuration = 6 + Math.random() * 6 + "s";
+
+  document.body.appendChild(snow);
+  setTimeout(() => snow.remove(), 12000);
+}
+
+startSnow();
+</script>
+<script>
+/* Snow */
+const flakes = ["❄️","❅","❆"];
+setInterval(() => {
+  const s = document.createElement("div");
+  s.className = "snowflake";
+  s.textContent = flakes[Math.floor(Math.random()*flakes.length)];
+  s.style.left = Math.random()*window.innerWidth+"px";
+  s.style.fontSize = 16 + Math.random()*24 + "px";
+  s.style.animationDuration = 6 + Math.random()*6 + "s";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),12000);
+},400);
+
+/* Music */
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+btn.onclick = () => {
+  if (music.paused) {
+    music.play();
+    btn.textContent = "🔊";
+  } else {
+    music.pause();
+    btn.textContent = "🔇";
+  }
+};
+</script>
+  </html>
